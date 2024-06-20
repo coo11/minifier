@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTMLMinifier: Online HTML/JS/CSS Minifier</title>
+    <!--
+		Wrapper created by coo11
+	 -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+
+  <body>
+    <div id="page">
+      <div class="header">
+        <h1>
+          <a id="header-link" href="./">HTMLMinifier: Online HTML/JS/CSS Minifier</a>
+        </h1>
+      </div>
+      <div class="main">
+        <div class="c1">
+          <div class="type l1">
+            <input type="radio" id="ih" name="type" value="html" />
+            <label for="ih">HTML</label>
+            <input type="radio" id="ij" name="type" value="javascript" />
+            <label for="ij">JavaScript</label>
+            <input type="radio" id="ic" name="type" value="css" />
+            <label for="ic">CSS</label>
+          </div>
+          <div class="input">
+            <textarea id="in" rows="24" cols="80" spellcheck="false" autofocus></textarea>
+            <div class="ctrl">
+              <button class="btn-main fr" id="btn-go">Minify</button>
+              <button id="btn-options">Options</button>
+              <!-- <input id="as-i-type" type="checkbox" checked />
+              <label for="as-i-type">As I type</label> -->
+            </div>
+          </div>
+          <div class="option hide">
+            <textarea id="op" rows="24" cols="80" spellcheck="false"></textarea>
+            <div class="ctrl">
+              <button class="btn-main" id="btn-options-save">Save</button>
+              <button id="btn-options-reset">Use defaults</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="c2 hide">
+          <div class="stats l1"></div>
+          <div class="output">
+            <textarea id="out" rows="24" cols="80" spellcheck="false" readonly></textarea>
+          </div>
+        </div>
+
+        <div class="c3 hide">
+          <pre id="error"></pre>
+        </div>
+
+        <div class="c4">
+          <p>
+            <strong>HTMLMinifier</strong> is an excellent tool to help you minify your HTML/JavaScript/CSS! Uses
+            <a href="https://github.com/terser/html-minifier-terser">html-minifier-terser</a>
+            which comes with
+            <a href="https://github.com/terser/terser">terser</a> and <a href="https://github.com/jakubpawlowicz/clean-css">clean-css</a>.
+          </p>
+          <p>This is a simple wrapper for the browser around the minifier; the hard work is done by the terser team and clean-css team.</p>
+          <p>
+            <small>
+              This wrapper for the browser was created by
+              <a href="https://github.com/coo11">coo11</a>. Inspired by
+              <i><a href="https://uglifyjs.pages.dev" target="_blank">UglifyJS 3: Online JavaScript minifier</a></i
+              >.
+              <br />
+              <code class="version">html-minifier-terser {HMT_VERSION}</code>
+              <br />
+              <code class="version">terser {TERSER_VERSION}</code>
+              <br />
+              <code class="version">clean-css {CCSS_VERSION}</code>
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <a href="https://minifier.app/" target="_blank">Minifier.app</a> | <a href="https://github.com/coo11/minifier" target="_blank">Github</a> |
+      <a href="https://terser.org/html-minifier-terser/" target="_blank">HTML Minifier Terser</a>
+    </footer>
+    <script src="hm.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

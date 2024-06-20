@@ -1,0 +1,3 @@
+[submodule "HTMLMinifier"]
+	path = HTMLMinifier
+	url = https://github.com/terser/html-minifier-terser.git
