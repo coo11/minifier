@@ -18,7 +18,7 @@ jobs:
           node-version: 18
       - name: Distribution
         run: |
-          mkdir -p
+          mkdir -p dist
           cp src/favicon.ico src/index.js src/style.css src/index.html -t dist/
           cd HTMLMinifier
           npm install
