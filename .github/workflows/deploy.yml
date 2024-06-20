@@ -25,11 +25,11 @@ jobs:
           npm run build
           cp dist/htmlminifier.umd.bundle.min.js ../dist/hm.js
           HVER=$(node -p "require('./package.json').version")
-          sed -i "s/{HMT_VERSION}/$HVER/g" ../dsit/index.html
+          sed -i "s/{HMT_VERSION}/$HVER/g" ../dist/index.html
           TVER=$(npm list terser --depth=0 | grep ' terser@' | awk -F@ '{ print $2 }')
-          sed -i "s/{TERSER_VERSION}/$TVER/g" ../dsit/index.html
+          sed -i "s/{TERSER_VERSION}/$TVER/g" ../dist/index.html
           CVER=$(npm list clean-css --depth=0 | grep ' clean-css@' | awk -F@ '{ print $2 }')
-          sed -i "s/{CCSS_VERSION}/$CVER/g" ../dsit/index.html
+          sed -i "s/{CCSS_VERSION}/$CVER/g" ../dist/index.html
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v4
         with:
