@@ -229,15 +229,17 @@ async function minify(type = "html", input) {
 }
 
 function detect(code) {
-  if (/^\s*</.test(code)) return "html";
-  if (/\bfunction\b|\bvar\b|\bconst\b|\blet\b|\bif\b|\belse\b|\bfor\b|\bwhile\b|\breturn\b|\bclass\b|\basync\b|\bawait\b|\bimport\b|\bexport\b/.test(code))
-    return "javascript";
-  try {
-    Function(code);
-    return "javascript";
-  } catch (_) {}
-  let ifCssCodeWithoutComments = code.replace(/\/\*[\s\S]*?\*\//g, "");
-  if (/^(?:\s*\S+\s*{[^}]*})+/.test(ifCssCodeWithoutComments)) return "css";
+  code = code.trim();
+  if (/^<!DOCTYPE|^<!--|^<html|^<head|^<body|^<\w+/.test(code)) return "html";
+  if (/\b(function|var|const|let|if|else|for|while|return|class|async|await|import|export|try|catch|new|=>)\b/.test(code)) return "javascript";
+  if (!/:\s*[^;]+;/.test(code)) {
+    try {
+      new Function(code);
+      return "javascript";
+    } catch (_) {}
+  }
+  let ifCssWithoutComments = code.replace(/\/\*[\s\S]*?\*\//g, "").trim();
+  if (/(@media|@keyframes|[.#]?\w[\w\s>:#.\[\]*="'-]*\s*{[^{}]*})/.test(ifCssWithoutComments)) return "css";
   return null;
 }
 
